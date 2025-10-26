@@ -5,6 +5,34 @@ Ce projet, mené dans le cadre de la vidéosurveillance intelligente de Videtics
 
 Ce projet implémente un pipeline complet de **classification d’images** en utilisant PyTorch. Il prend en charge des datasets personnalisés, des augmentations de données, un réseau de neurones modulaire et une boucle d'entraînement optimisée pour le GPU.
 
+
+## ⚙️ Points techniques clés
+
+Ce projet met en œuvre un pipeline complet de **classification d’images** reposant sur des méthodes et outils modernes d’IA et d’ingénierie logicielle :
+
+- **Langage** : Python 3  
+- **Framework principal** : PyTorch (entraînement GPU, DataLoader, modèle modulaire)  
+- **Librairies utilisées** :
+  - `torch`, `torchvision`, `numpy`, `pandas` – pour le deep learning et la manipulation de données  
+  - `PIL`, `opencv-python` – pour le traitement et l’augmentation d’images  
+  - `onnx`, `onnxruntime`, `onnxsim` – pour l’export et l’optimisation du modèle  
+  - `tensorboard` – pour la visualisation des métriques d’entraînement  
+- **Environnement d’exécution** :
+  - Conteneur **Docker** optimisé pour **GPU NVIDIA**  
+  - Exécution automatisée via **Kronos CLI**  
+- **Architecture logicielle** :
+  - Dataset personnalisé (`CustomImageDataset`, `EvaluationDataset`)  
+  - Loader d’augmentations sur mesure (`CustomAugmentedLoader`)  
+  - Réseau de neurones modulaire (défini dans `Network.py`)  
+  - Support multi-sorties et gestion de plusieurs fonctions de perte  
+- **Optimisation & export** :
+  - Entraînement optimisé pour GPU  
+  - Export automatique au format **ONNX** en parallèle de l’entraînement  
+  - Compatibilité avec `onnxsim` et `onnxruntime` pour l’inférence rapide  
+- **Suivi & monitoring** :
+  - Visualisation des courbes d’entraînement via **TensorBoard**  
+  - Gestion centralisée des expériences via **Kronos CLI**
+
 ---
 
 ## ✨ Fonctionnalités principales
