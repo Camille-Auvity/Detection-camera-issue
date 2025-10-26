@@ -1,4 +1,149 @@
-# Detection-camera-issue
+# FRENCH VERSION BELOW ⬇
+
+# 🚨 Detection-Camera-Issue
+
+The code for this project remains private, as it was developed during my internship at **VIDETICS**.
+
+This project, conducted as part of Videtics’ intelligent video surveillance system, aims to automatically detect video stream degradations to ensure their reliability.  
+It contributes to improving tool performance, customer satisfaction, and the company’s overall positioning.
+
+---
+
+# 🧠 Image Classification Pipeline (PyTorch)
+
+This project implements a complete **image classification pipeline** using PyTorch.  
+It supports custom datasets, data augmentation, a modular neural network, and a GPU-optimized training loop.
+
+---
+
+## ⚙️ Key Technical Points
+
+This project implements a full **image classification pipeline** based on modern AI and software engineering methods and tools:
+
+- **Language**: Python 3  
+- **Main framework**: PyTorch (GPU training, DataLoader, modular network)  
+- **Libraries used**:
+  - `torch`, `torchvision`, `numpy`, `pandas` – for deep learning and data manipulation  
+  - `PIL`, `opencv-python` – for image processing and augmentation  
+  - `onnx`, `onnxruntime`, `onnxsim` – for model export and optimization  
+  - `tensorboard` – for visualization of training metrics  
+- **Execution environment**:
+  - **Docker** container optimized for **NVIDIA GPU**  
+  - Automated execution via **Kronos CLI**  
+- **Software architecture**:
+  - Custom dataset (`CustomImageDataset`, `EvaluationDataset`)  
+  - Custom augmentation loader (`CustomAugmentedLoader`)  
+  - Modular neural network (defined in `Network.py`)  
+  - Multi-output support and management of multiple loss functions  
+- **Optimization & export**:
+  - GPU-optimized training  
+  - Automatic export to **ONNX** format in parallel with training  
+  - Compatibility with `onnxsim` and `onnxruntime` for fast inference  
+- **Monitoring & tracking**:
+  - Visualization of training curves via **TensorBoard**  
+  - Centralized experiment management with **Kronos CLI**
+
+---
+
+## ✨ Main Features
+
+- 📂 Custom dataset (`CustomImageDataset`, `EvaluationDataset`)
+- 🔁 Custom augmentations via `CustomAugmentedLoader`
+- 🧱 Modular network defined in `Network.py`
+- 🎯 Multi-output support with multiple loss functions
+- 📊 Visualization through TensorBoard
+- 🐳 Docker-compatible (GPU-optimized NVIDIA image)
+- 🔄 Automated ONNX export alongside training (`export_onnx`)
+- ⚙️ ONNX export compatible with `onnxsim` and `onnxruntime`
+
+---
+
+## ⚙️ Installation (via Docker)
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+```
+
+### 2. Launch training via kronos-cli
+
+```bash
+kronos-cli run train --experiment_name FirstTrain --force
+```
+
+## Usage
+
+### 🔧 Training (example kronos.yml)
+```bash
+train:
+  script:
+    - echo "Starting training..."
+    - python3 /repo/network_train/train.py
+  datasets:
+    - "data-3classes"
+    - "camstate_ok_images"
+  volumes:
+    - "SegmentAnythingFull"
+```
+
+You can also manually run the training process inside the container:
+```bash
+python3 /repo/network_train/train.py --train_path /datasets/camstate_ok_images --val_path /datasets/data-3classes --batch_size 128 --epochs 20 --n_classes 3 --PATH_OBJECT /volumes/SegmentAnythingFull
+```
+
+## Visualization with TensorBoard
+```bash
+python3 -m tensorboard.main --logdir /kronos_worker/experiments/images-quality-classification/ --bind_all --port 6005
+```
+
+## ONNX Export
+Model export to the ONNX format is automated via export_onnx and can be executed with:
+```bash
+kronos-cli run export_onnx --experiment_name ConvertModel --force --dependency FirstTrain
+```
+
+The exported model can then be simplified or evaluated with onnxsim or onnxruntime.
+
+## Available Arguments
+| Argument        | Type  | Default Value                  | Description                                              |
+| --------------- | ----- | ------------------------------ | -------------------------------------------------------- |
+| `--train_path`  | str   | `/datasets/camstate_ok_images` | Folder containing training images.                       |
+| `--val_path`    | str   | `/datasets/data-3classes`      | Folder containing validation images.                     |
+| `--batch_size`  | int   | `128`                          | Batch size (adjust depending on available GPU memory).   |
+| `--epochs`      | int   | `20`                           | Number of training epochs.                               |
+| `--lr`          | float | `0.001`                        | Learning rate.                                           |
+| `--n_classes`   | int   | `3`                            | Number of output classes.                                |
+| `--freq_save`   | int   | `5`                            | Frequency (in epochs) of intermediate checkpoint saving. |
+| `--PATH_OBJECT` | str   | `/volumes/SegmentAnythingFull` | Folder where model checkpoints are saved.                |
+
+## Useful Commands
+Some commonly used project commands:
+```bash
+# Start training with Docker and Kronos
+kronos-cli run train --experiment_name FirstTrain --force
+
+# Follow container logs in real time
+docker container logs kronos_cli_images-quality-classification_FirstTrain -f
+
+# Open TensorBoard inside the container (port 6005)
+python3 -m tensorboard.main --logdir /kronos_worker/experiments/images-quality-classification/ --bind_all --port 6005
+
+# Export the model to ONNX format (depends on a previous training run)
+kronos-cli run export_onnx --experiment_name ConvertModel --force --dependency FirstTrain
+
+# Open a terminal inside the training container
+docker exec -it kronos_cli_images-quality-classification_FirstTrain /bin/bash
+```
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------
+# FRENCH VERSION
+# 🚨 Detection-camera-issue
 
 Le code de ce projet reste privé car j'ai codé tout ça lors de mon stage chez VIDETICS.
 
