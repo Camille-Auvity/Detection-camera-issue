@@ -1,6 +1,6 @@
-# FRENCH VERSION BELOW ⬇
+# FRENCH VERSION BELOW
 
-# 🚨 Detection-Camera-Issue
+# Detection-Camera-Issue
 
 The code for this project remains private, as it was developed during my internship at **VIDETICS**.
 
@@ -9,14 +9,14 @@ It contributes to improving tool performance, customer satisfaction, and the com
 
 ---
 
-# 🧠 Image Classification Pipeline (PyTorch)
+# Image Classification Pipeline (PyTorch)
 
 This project implements a complete **image classification pipeline** using PyTorch.  
 It supports custom datasets, data augmentation, a modular neural network, and a GPU-optimized training loop.
 
 ---
 
-## ⚙️ Key Technical Points
+## Key Technical Points
 
 This project implements a full **image classification pipeline** based on modern AI and software engineering methods and tools:
 
@@ -45,20 +45,20 @@ This project implements a full **image classification pipeline** based on modern
 
 ---
 
-## ✨ Main Features
+## Main Features
 
-- 📂 Custom dataset (`CustomImageDataset`, `EvaluationDataset`)
-- 🔁 Custom augmentations via `CustomAugmentedLoader`
-- 🧱 Modular network defined in `Network.py`
-- 🎯 Multi-output support with multiple loss functions
-- 📊 Visualization through TensorBoard
-- 🐳 Docker-compatible (GPU-optimized NVIDIA image)
-- 🔄 Automated ONNX export alongside training (`export_onnx`)
-- ⚙️ ONNX export compatible with `onnxsim` and `onnxruntime`
+- Custom dataset (`CustomImageDataset`, `EvaluationDataset`)
+- Custom augmentations via `CustomAugmentedLoader`
+- Modular network defined in `Network.py`
+- Multi-output support with multiple loss functions
+- Visualization through TensorBoard
+- Docker-compatible (GPU-optimized NVIDIA image)
+- Automated ONNX export alongside training (`export_onnx`)
+- ONNX export compatible with `onnxsim` and `onnxruntime`
 
 ---
 
-## ⚙️ Installation (via Docker)
+## Installation (via Docker)
 
 ### 1. Clone the repository
 
@@ -75,7 +75,7 @@ kronos-cli run train --experiment_name FirstTrain --force
 
 ## Usage
 
-### 🔧 Training (example kronos.yml)
+### Training (example kronos.yml)
 ```bash
 train:
   script:
@@ -143,18 +143,18 @@ docker exec -it kronos_cli_images-quality-classification_FirstTrain /bin/bash
 
 --------------------------------------------------------------------------------------------------------------------------
 # FRENCH VERSION
-# 🚨 Detection-camera-issue
+# Detection-camera-issue
 
 Le code de ce projet reste privé car j'ai codé tout ça lors de mon stage chez VIDETICS.
 
 Ce projet, mené dans le cadre de la vidéosurveillance intelligente de Videtics, vise à détecter automatiquement les dégradations des flux vidéo afin d’en garantir la fiabilité. Il contribue à renforcer la performance des outils, la satisfaction client et le positionnement de l’entreprise.
 
-# 🧠 Image Classification Pipeline (PyTorch)
+# Image Classification Pipeline (PyTorch)
 
 Ce projet implémente un pipeline complet de **classification d’images** en utilisant PyTorch. Il prend en charge des datasets personnalisés, des augmentations de données, un réseau de neurones modulaire et une boucle d'entraînement optimisée pour le GPU.
 
 
-## ⚙️ Points techniques clés
+## Points techniques clés
 
 Ce projet met en œuvre un pipeline complet de **classification d’images** reposant sur des méthodes et outils modernes d’IA et d’ingénierie logicielle :
 
@@ -183,20 +183,20 @@ Ce projet met en œuvre un pipeline complet de **classification d’images** rep
 
 ---
 
-## ✨ Fonctionnalités principales
+## Fonctionnalités principales
 
-- 📂 Dataset personnalisé (`CustomImageDataset`, `EvaluationDataset`)
-- 🔁 Augmentations sur mesure via `CustomAugmentedLoader`
-- 🧱 Réseau modulaire défini dans `Network.py`
-- 🎯 Support multi-sorties avec gestion de plusieurs fonctions de perte
-- 📊 Visualisation via TensorBoard
-- 🐳 Compatible Docker (image optimisée pour GPU NVIDIA)
-- 🔄 Export ONNX automatisé en parallèle de l'entraînement (`export_onnx`)
-- ⚙️ Export ONNX compatible avec `onnxsim` et `onnxruntime`
+- Dataset personnalisé (`CustomImageDataset`, `EvaluationDataset`)
+- Augmentations sur mesure via `CustomAugmentedLoader`
+- Réseau modulaire défini dans `Network.py`
+- Support multi-sorties avec gestion de plusieurs fonctions de perte
+- Visualisation via TensorBoard
+- Compatible Docker (image optimisée pour GPU NVIDIA)
+- Export ONNX automatisé en parallèle de l'entraînement (`export_onnx`)
+- Export ONNX compatible avec `onnxsim` et `onnxruntime`
 
 ---
 
-## ⚙️ Installation (via Docker)
+## Installation (via Docker)
 
 ### 1. Cloner le dépôt
 
@@ -213,9 +213,9 @@ kronos-cli run train --experiment_name FirstTrain --force
 
 ---
 
-## 🚀 Utilisation
+## Utilisation
 
-### 🔧 Entraînement (exemple `kronos.yml`)
+### Entraînement (exemple `kronos.yml`)
 
 ```yaml
 train:
@@ -229,7 +229,7 @@ train:
     - "SegmentAnythingFull"
 ```
 
-> 💡 Vous pouvez aussi exécuter l'entraînement manuellement depuis le conteneur :
+> Vous pouvez aussi exécuter l'entraînement manuellement depuis le conteneur :
 >
 > ```bash
 > python3 /repo/network_train/train.py --train_path /datasets/camstate_ok_images --val_path /datasets/data-3classes --batch_size 128 --epochs 20 --n_classes 3 --PATH_OBJECT /volumes/SegmentAnythingFull
@@ -237,7 +237,7 @@ train:
 
 ---
 
-## 📈 Visualisation avec TensorBoard
+## Visualisation avec TensorBoard
 
 ```bash
 python3 -m tensorboard.main --logdir /kronos_worker/experiments/images-quality-classification/ --bind_all --port 6005
@@ -245,7 +245,7 @@ python3 -m tensorboard.main --logdir /kronos_worker/experiments/images-quality-c
 
 ---
 
-## 📤 Export ONNX
+## Export ONNX
 
 L'export du modèle au format ONNX est automatisé via `export_onnx` et peut être exécuté avec :
 
@@ -257,7 +257,7 @@ kronos-cli run export_onnx --experiment_name ConvertModel --force --dependency F
 
 ---
 
-## 🎛️ Liste des arguments disponibles
+## Liste des arguments disponibles
 
 | Argument         | Type   | Valeur par défaut                        | Description                                                                 |
 |------------------|--------|------------------------------------------|-----------------------------------------------------------------------------|
@@ -272,7 +272,7 @@ kronos-cli run export_onnx --experiment_name ConvertModel --force --dependency F
 
 ---
 
-## 💻 Commandes utiles
+## Commandes utiles
 
 Voici quelques commandes courantes utilisées avec le projet :
 
